@@ -63,7 +63,7 @@ function playRound() {
         console.log("YOu won this round!");
     }else if (playerSelection == paper && computerSelection == scissors){
         console.log("You lose this match.");
-    }
+    }else {console.log("That's not a real answer.")}
 
 }   
 
