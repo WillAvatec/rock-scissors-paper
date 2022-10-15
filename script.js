@@ -16,11 +16,11 @@ de si empezar (con piedra, papel o tijera).
     -   -   Si el numero es 0 se repite el random
 
 
-    -   printComputerChoice; */
+    -   printComputerChoice; en la consola */
 
-const rock = "Rock";
-const scissors = "Scissors";
-const paper = "Paper";
+const rock = "Roca";
+const scissors = "Tijeras";
+const paper = "Papel";
 
 function getComputerChoice(){
     
@@ -33,13 +33,21 @@ function getComputerChoice(){
         return scissors;}
     }
 
-
-
+const computerSelection = getComputerChoice();
+ 
 
 /*Luego el jugador debe elegir su eleccion usando el parametro
 de una función,[function(elección)]. Esta se compara con la decision
-de la computadora y se obserba en la siguiente tabla:
+de la computadora y se obserba en la siguiente tabla:      */
 
+let playerSelection = prompt("Escoge tu arma");
+
+
+function playRound(playerSelection, computerSelection) {
+    
+}
+
+/*
     Rock < Paper < Scissors  ||  Scissors < Rock
 
 */
