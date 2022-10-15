@@ -67,9 +67,10 @@ function playRound() {
 
 }   
 
-playRound();
+function game() {
+    for(let i=0; i < 5; i++){  
+        playRound()
+    };
+}
 
-/*
-    Rock < Paper < Scissors  ||  Scissors < Rock
-
-*/
+game();
