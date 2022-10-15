@@ -18,9 +18,9 @@ de si empezar (con piedra, papel o tijera).
 
     -   printComputerChoice; en la consola */
 
-const rock = "Roca";
-const scissors = "Tijeras";
-const paper = "Papel";
+const rock = "rock";
+const scissors = "scissors";
+const paper = "paper";
 
 function getComputerChoice(){
     
@@ -33,19 +33,41 @@ function getComputerChoice(){
         return scissors;}
     }
 
-const computerSelection = getComputerChoice();
  
 
 /*Luego el jugador debe elegir su eleccion usando el parametro
 de una función,[function(elección)]. Esta se compara con la decision
-de la computadora y se obserba en la siguiente tabla:      */
-
-let playerSelection = prompt("Escoge tu arma");
+de la computadora y se obserba en la siguiente tabla:
 
 
-function playRound(playerSelection, computerSelection) {
-    
-}
+*/ 
+
+
+function playRound() {
+    let sign = prompt("What's your sign?");
+    let computerSelection = getComputerChoice();
+    const playerSelection = sign.toLowerCase();
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if (playerSelection == computerSelection) {
+       console.log("Tie...!");
+    }else if (playerSelection == rock && computerSelection == paper){
+        console.log("You lose this round.");
+    }else if (playerSelection == paper && computerSelection == rock){
+        console.log("You won this round!");
+    }else if (playerSelection == scissors && computerSelection == rock ){
+        console.log("You lose this round.");
+    }else if (playerSelection == rock && computerSelection == scissors){
+        console.log("You won this round!");
+    }else if (playerSelection == scissors && computerSelection == paper){
+        console.log("YOu won this round!");
+    }else if (playerSelection == paper && computerSelection == scissors){
+        console.log("You lose this match.");
+    }
+
+}   
+
+playRound();
 
 /*
     Rock < Paper < Scissors  ||  Scissors < Rock
