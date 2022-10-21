@@ -55,42 +55,49 @@ function addPointComp() {
     console.log(computerBox);
 }
 
-function showResult() {
+function lose() {
     
-    resultado.textContent = value
+    resultado.textContent = "Perdiste esta ronda";
+}
+
+function win(){
+    
+    resultado.textContent = "Ganaste esta ronda!";
 }
 
 function playRound(player) {
 
     let computerSelection = getComputerChoice();
     const playerSelection = player.toLowerCase();
-    let value;
+    if (playerValue == 10 ){
+        resultado.textContent = "GANASTE LA PARTIDA, PARECE QUE LOGRASTE VENCER A LA MAQUINA.."
+    }
+    
+    if (computerValue == 10){
+        resultado.textContent = "Enserio te dejaste ganar por un celular? ¬¬ "
+    }
     if (playerSelection == computerSelection) {
-       console.log("Tie...!");
+        resultado.textContent = "¡Empaaaate!";
     }else if (playerSelection == rock && computerSelection == paper){
         addPointComp();
-        value = "Perdiste."
-        showResult();
+        lose();
     }else if (playerSelection == paper && computerSelection == rock){
         addPointPlayer();
-        value = "Ganaste!";
-        showResult();
+        win();
     }else if (playerSelection == scissors && computerSelection == rock ){
         addPointComp(),
-        value = "Perdiste."
-        showResult();
+        lose();
     }else if (playerSelection == rock && computerSelection == scissors){
         addPointPlayer();
-        value = "Ganaste!";
-        showResult();
+        win();
     }else if (playerSelection == scissors && computerSelection == paper){
         addPointPlayer();
-        value = "Ganaste!";
-        showResult();
+        win();
     }else if (playerSelection == paper && computerSelection == scissors){
         addPointComp();
-        value = "Perdiste."
-        showResult();
+        lose()
+    }else {
+        resultado.textContent = "Algo no salio bien, me avisas cualquier cosa."
     }
 
 }   
@@ -100,10 +107,8 @@ const playerBox = document.querySelector("#player");
 let playerValue = parseInt(playerBox.textContent);
 const computerBox = document.querySelector("#computer");
 let computerValue = parseInt(computerBox.textContent);
-const resultado = document.getElementById("resultado");
+const resultado = document.querySelector("#resultado");
 
 buttons.forEach(button => {
     button.addEventListener("click",(e) => playRound(button.textContent));      // with (e)=>button.textContent puedo seleccionar el string del button.
 });
-
-
