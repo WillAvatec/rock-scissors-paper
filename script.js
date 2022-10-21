@@ -43,10 +43,10 @@ de la computadora y se obserba en la siguiente tabla:
 */ 
 
 
-function playRound() {
-    let sign = prompt("What's your sign?");
+function playRound(player) {
+
     let computerSelection = getComputerChoice();
-    const playerSelection = sign.toLowerCase();
+    const playerSelection = player.toLowerCase();
     console.log(playerSelection);
     console.log(computerSelection);
     if (playerSelection == computerSelection) {
@@ -60,7 +60,7 @@ function playRound() {
     }else if (playerSelection == rock && computerSelection == scissors){
         console.log("You won this round!");
     }else if (playerSelection == scissors && computerSelection == paper){
-        console.log("YOu won this round!");
+        console.log("You won this round!");
     }else if (playerSelection == paper && computerSelection == scissors){
         console.log("You lose this match.");
     }else {console.log("That's not a real answer.")}
@@ -70,5 +70,5 @@ function playRound() {
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(button => {
-    button.addEventListener("click",playRound(button.textContent));      // with (e)=>button.textContent puedo seleccionar el string del button.
+    button.addEventListener("click",(e) => playRound(button.textContent));      // with (e)=>button.textContent puedo seleccionar el string del button.
 });
