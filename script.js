@@ -42,33 +42,68 @@ de la computadora y se obserba en la siguiente tabla:
     scissors < rock < paper   |    paper < scissors
 */ 
 
+function addPointPlayer() {
+
+    playerBox.textContent = `${playerValue += 1}`
+    console.log(playerValue);
+}
+
+
+function addPointComp() {
+    
+    computerBox.textContent = `${computerValue += 1}`
+    console.log(computerBox);
+}
+
+function showResult() {
+    
+    resultado.textContent = value
+}
 
 function playRound(player) {
 
     let computerSelection = getComputerChoice();
     const playerSelection = player.toLowerCase();
-    console.log(playerSelection);
-    console.log(computerSelection);
+    let value;
     if (playerSelection == computerSelection) {
        console.log("Tie...!");
     }else if (playerSelection == rock && computerSelection == paper){
-        console.log("You lose this round.");
+        addPointComp();
+        value = "Perdiste."
+        showResult();
     }else if (playerSelection == paper && computerSelection == rock){
-        console.log("You won this round!");
+        addPointPlayer();
+        value = "Ganaste!";
+        showResult();
     }else if (playerSelection == scissors && computerSelection == rock ){
-        console.log("You lose this round.");
+        addPointComp(),
+        value = "Perdiste."
+        showResult();
     }else if (playerSelection == rock && computerSelection == scissors){
-        console.log("You won this round!");
+        addPointPlayer();
+        value = "Ganaste!";
+        showResult();
     }else if (playerSelection == scissors && computerSelection == paper){
-        console.log("You won this round!");
+        addPointPlayer();
+        value = "Ganaste!";
+        showResult();
     }else if (playerSelection == paper && computerSelection == scissors){
-        console.log("You lose this match.");
-    }else {console.log("That's not a real answer.")}
+        addPointComp();
+        value = "Perdiste."
+        showResult();
+    }
 
 }   
 
 const buttons = document.querySelectorAll("button");
+const playerBox = document.querySelector("#player");
+let playerValue = parseInt(playerBox.textContent);
+const computerBox = document.querySelector("#computer");
+let computerValue = parseInt(computerBox.textContent);
+const resultado = document.getElementById("resultado");
 
 buttons.forEach(button => {
     button.addEventListener("click",(e) => playRound(button.textContent));      // with (e)=>button.textContent puedo seleccionar el string del button.
 });
+
+
