@@ -1,0 +1,28 @@
+body {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.container {
+    border:  2px solid rgb(140, 49, 49);
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 20vh;
+    padding: 20px 10px;
+    background-color: blanchedalmond;
+}
+
+button {
+    color: rgb(12, 4, 2);
+    background-color: rgb(200, 170, 149);
+    font-size: 20px;
+    border-radius: 9px;
+}
+
+.puntuacion {
+    
+    border: 4px solid red;
+}

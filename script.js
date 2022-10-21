@@ -39,7 +39,7 @@ function getComputerChoice(){
 de una función,[function(elección)]. Esta se compara con la decision
 de la computadora y se obserba en la siguiente tabla:
 
-
+    scissors < rock < paper   |    paper < scissors
 */ 
 
 
@@ -67,10 +67,8 @@ function playRound() {
 
 }   
 
-function game() {
-    for(let i=0; i < 5; i++){  
-        playRound()
-    };
-}
+const buttons = document.querySelectorAll("button");
 
-game();
+buttons.forEach(button => {
+    button.addEventListener("click",playRound(button.textContent));      // with (e)=>button.textContent puedo seleccionar el string del button.
+});
